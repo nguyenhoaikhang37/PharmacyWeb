@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLNTTDA" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-UPNPDEN;Initial Catalog=QLNTTDA;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLNTTDAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BACLUONG" Member="BACLUONGs">
+    <Type Name="BACLUONG">
+      <Column Name="MABAC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENBAC" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="HESO" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="BACLUONG_CHITIETBACLUONG" Member="CHITIETBACLUONGs" ThisKey="MABAC" OtherKey="MABAC" Type="CHITIETBACLUONG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.XUATXU" Member="XUATXUs">
+    <Type Name="XUATXU">
+      <Column Name="MAXUATXU" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENXUATXU" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LOAIXUATXU" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="XUATXU_THUOC" Member="THUOCs" ThisKey="MAXUATXU" OtherKey="MAXUATXU" Type="THUOC" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BANGLUONG" Member="BANGLUONGs">
+    <Type Name="BANGLUONG">
+      <Column Name="MABANGLUONG" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LUONGTHUCTE" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYAPDUNG" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GHICHUBL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="NHANVIEN_BANGLUONG" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHAMCONG" Member="CHAMCONGs">
+    <Type Name="CHAMCONG">
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MACHAMCONG" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="THANG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SONGAYLAMVIEC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NHANVIEN_CHAMCONG" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHITIETBACLUONG" Member="CHITIETBACLUONGs">
+    <Type Name="CHITIETBACLUONG">
+      <Column Name="MABAC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TUNGAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DENNGAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="BACLUONG_CHITIETBACLUONG" Member="BACLUONG" ThisKey="MABAC" OtherKey="MABAC" Type="BACLUONG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_CHITIETBACLUONG" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHITIETPHIEUNHAPTHUOC" Member="CHITIETPHIEUNHAPTHUOCs">
+    <Type Name="CHITIETPHIEUNHAPTHUOC">
+      <Column Name="MAPNT" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATHUOC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SOLUONGNHAPTHUOC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DVT" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="THANHTIENNT" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="DONGIABAN" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="PHIEUNHAPTHUOC_CHITIETPHIEUNHAPTHUOC" Member="PHIEUNHAPTHUOC" ThisKey="MAPNT" OtherKey="MAPNT" Type="PHIEUNHAPTHUOC" IsForeignKey="true" />
+      <Association Name="THUOC_CHITIETPHIEUNHAPTHUOC" Member="THUOC" ThisKey="MATHUOC" OtherKey="MATHUOC" Type="THUOC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHITIETHOADONBAN" Member="CHITIETHOADONBANs">
+    <Type Name="CHITIETHOADONBAN">
+      <Column Name="MAHDB" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATHUOC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SOLUONGBAN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="THANHTIENBAN" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="HOADONBAN_CHITIETHOADONBAN" Member="HOADONBAN" ThisKey="MAHDB" OtherKey="MAHDB" Type="HOADONBAN" IsForeignKey="true" />
+      <Association Name="THUOC_CHITIETHOADONBAN" Member="THUOC" ThisKey="MATHUOC" OtherKey="MATHUOC" Type="THUOC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DANHMUCMANHINH" Member="DANHMUCMANHINHs">
+    <Type Name="DANHMUCMANHINH">
+      <Column Name="MADMMH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENMANHINH" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="DANHMUCMANHINH_PHANQUYEN" Member="PHANQUYENs" ThisKey="MADMMH" OtherKey="MADMMH" Type="PHANQUYEN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HANGSANXUAT" Member="HANGSANXUATs">
+    <Type Name="HANGSANXUAT">
+      <Column Name="MAHSX" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENHSX" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="HANGSANXUAT_THUOC" Member="THUOCs" ThisKey="MAHSX" OtherKey="MAHSX" Type="THUOC" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOADONBAN" Member="HOADONBANs">
+    <Type Name="HOADONBAN">
+      <Column Name="MAHDB" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYLAPBAN" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="VAT" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="TONGTIENBAN" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="HOADONBAN_CHITIETHOADONBAN" Member="CHITIETHOADONBANs" ThisKey="MAHDB" OtherKey="MAHDB" Type="CHITIETHOADONBAN" />
+      <Association Name="KHACHHANG_HOADONBAN" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="NHANVIEN_HOADONBAN" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KETHUOC" Member="KETHUOCs">
+    <Type Name="KETHUOC">
+      <Column Name="MAKE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENKE" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="KETHUOC_LOAITHUOC" Member="LOAITHUOCs" ThisKey="MAKE" OtherKey="MAKE" Type="LOAITHUOC" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
+    <Type Name="KHACHHANG">
+      <Column Name="MAKH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATINHTHANH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HOTENKH" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="LOAIKHACHHANG" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSINHKH" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GIOITINHKH" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHIKH" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SODIENTHOAIKH" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="KHACHHANG_HOADONBAN" Member="HOADONBANs" ThisKey="MAKH" OtherKey="MAKH" Type="HOADONBAN" />
+      <Association Name="TINHTHANH_KHACHHANG" Member="TINHTHANH" ThisKey="MATINHTHANH" OtherKey="MATINHTHANH" Type="TINHTHANH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAITHUOC" Member="LOAITHUOCs">
+    <Type Name="LOAITHUOC">
+      <Column Name="MALOAITHUOC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAKE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TENLOAITHUOC" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="LOAITHUOC_THUOC" Member="THUOCs" ThisKey="MALOAITHUOC" OtherKey="MALOAITHUOC" Type="THUOC" />
+      <Association Name="KETHUOC_LOAITHUOC" Member="KETHUOC" ThisKey="MAKE" OtherKey="MAKE" Type="KETHUOC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHACUNGCAP" Member="NHACUNGCAPs">
+    <Type Name="NHACUNGCAP">
+      <Column Name="MANCC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATINHTHANH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TENNHACUNGCAP" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="TINHTHANH_NHACUNGCAP" Member="TINHTHANH" ThisKey="MATINHTHANH" OtherKey="MATINHTHANH" Type="TINHTHANH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHANVIEN" Member="NHANVIENs">
+    <Type Name="NHANVIEN">
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANHOMNV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TENDANGNHAP" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="MATKHAU" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="HOTENNV" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="GIOITINHNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NGAYSINHNV" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIACHINV" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SODIENTHOAINV" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CHUNGMINHTHU" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NGAYBATDAULAMVIEC" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYKETTHUCLAMVIEC" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TRINHDOHOCVAN" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="MUCLUONGCOBAN" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="NHANVIEN_BANGLUONG" Member="BANGLUONGs" ThisKey="MANV" OtherKey="MANV" Type="BANGLUONG" />
+      <Association Name="NHANVIEN_CHAMCONG" Member="CHAMCONGs" ThisKey="MANV" OtherKey="MANV" Type="CHAMCONG" />
+      <Association Name="NHANVIEN_CHITIETBACLUONG" Member="CHITIETBACLUONGs" ThisKey="MANV" OtherKey="MANV" Type="CHITIETBACLUONG" />
+      <Association Name="NHANVIEN_HOADONBAN" Member="HOADONBANs" ThisKey="MANV" OtherKey="MANV" Type="HOADONBAN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHOMNHANVIEN" Member="NHOMNHANVIENs">
+    <Type Name="NHOMNHANVIEN">
+      <Column Name="MANHOMNV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENNHOM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="NHOMNHANVIEN_PHANQUYEN" Member="PHANQUYENs" ThisKey="MANHOMNV" OtherKey="MANHOMNV" Type="PHANQUYEN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHANQUYEN" Member="PHANQUYENs">
+    <Type Name="PHANQUYEN">
+      <Column Name="MANHOMNV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MADMMH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COQUYEN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="NHOMNHANVIEN_PHANQUYEN" Member="NHOMNHANVIEN" ThisKey="MANHOMNV" OtherKey="MANHOMNV" Type="NHOMNHANVIEN" IsForeignKey="true" />
+      <Association Name="DANHMUCMANHINH_PHANQUYEN" Member="DANHMUCMANHINH" ThisKey="MADMMH" OtherKey="MADMMH" Type="DANHMUCMANHINH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUNHAPTHUOC" Member="PHIEUNHAPTHUOCs">
+    <Type Name="PHIEUNHAPTHUOC">
+      <Column Name="MAPNT" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MANCC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYNHAPTHUOC" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GHICHUNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TONGTIEN" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="PHIEUNHAPTHUOC_CHITIETPHIEUNHAPTHUOC" Member="CHITIETPHIEUNHAPTHUOCs" ThisKey="MAPNT" OtherKey="MAPNT" Type="CHITIETPHIEUNHAPTHUOC" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QUANHUYEN" Member="QUANHUYENs">
+    <Type Name="QUANHUYEN">
+      <Column Name="MAQUANHUYEN" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENQUANHUYEN" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="QUANHUYEN_TINHTHANH" Member="TINHTHANHs" ThisKey="MAQUANHUYEN" OtherKey="MAQUANHUYEN" Type="TINHTHANH" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TINHTHANH" Member="TINHTHANHs">
+    <Type Name="TINHTHANH">
+      <Column Name="MATINHTHANH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAQUANHUYEN" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TENTINHTHANH" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="TINHTHANH_KHACHHANG" Member="KHACHHANGs" ThisKey="MATINHTHANH" OtherKey="MATINHTHANH" Type="KHACHHANG" />
+      <Association Name="TINHTHANH_NHACUNGCAP" Member="NHACUNGCAPs" ThisKey="MATINHTHANH" OtherKey="MATINHTHANH" Type="NHACUNGCAP" />
+      <Association Name="QUANHUYEN_TINHTHANH" Member="QUANHUYEN" ThisKey="MAQUANHUYEN" OtherKey="MAQUANHUYEN" Type="QUANHUYEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THUOC" Member="THUOCs">
+    <Type Name="THUOC">
+      <Column Name="MATHUOC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MALOAITHUOC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAHSX" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MAXUATXU" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TENTHUOC" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="HINHTHUOC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="THANHPHAN" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CONGDUNG" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="BAOQUAN" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="GHICHUTHUOC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="DVT" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SOLOTHUOC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYSANXUAT" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HANSUDUNG" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DONGIATHUOC" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="SOLUONGTON" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="THUOC_CHITIETPHIEUNHAPTHUOC" Member="CHITIETPHIEUNHAPTHUOCs" ThisKey="MATHUOC" OtherKey="MATHUOC" Type="CHITIETPHIEUNHAPTHUOC" />
+      <Association Name="THUOC_CHITIETHOADONBAN" Member="CHITIETHOADONBANs" ThisKey="MATHUOC" OtherKey="MATHUOC" Type="CHITIETHOADONBAN" />
+      <Association Name="HANGSANXUAT_THUOC" Member="HANGSANXUAT" ThisKey="MAHSX" OtherKey="MAHSX" Type="HANGSANXUAT" IsForeignKey="true" />
+      <Association Name="LOAITHUOC_THUOC" Member="LOAITHUOC" ThisKey="MALOAITHUOC" OtherKey="MALOAITHUOC" Type="LOAITHUOC" IsForeignKey="true" />
+      <Association Name="XUATXU_THUOC" Member="XUATXU" ThisKey="MAXUATXU" OtherKey="MAXUATXU" Type="XUATXU" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

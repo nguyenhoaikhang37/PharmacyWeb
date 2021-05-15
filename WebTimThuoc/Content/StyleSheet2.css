@@ -1,0 +1,334 @@
+﻿/*======================StartCode===============================*/
+/*font-family*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*body*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  color: black;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*-------------------BUTTON---------------------*/
+button {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+/*---------------------------------------------*/
+header {
+  height: 100px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 166px;
+  height: 91px;
+  padding: 10px 0;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-timKiem {
+  width: 400px;
+  border: 1px solid #ddd;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+#timKiem {
+  border: none;
+  border-bottom:2px solid #1a73e7;
+  outline: none;
+  border-right: none;
+  flex-grow: 1;
+  padding:10px  20px 10px 10px;
+}
+
+.search-icon {
+  font-size: 15px;
+  right: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.menu-bar {
+  background: #1a73e7;
+  padding: 0;
+}
+
+.menu-bar .menu-item {
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 40px;
+}
+
+.container-product {
+  display: flex;
+}
+
+.content {
+  margin-top: 80px;
+}
+
+.title {
+  color: #777;
+  font-size: 20px;
+  position: relative;
+  line-height: 60px;
+  margin-bottom: 20px;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: #e5e5e5;
+}
+
+.content-left {
+  width: 30%;
+}
+
+.category-list .category-item {
+  font-size: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ececec;
+  display: flex;
+  justify-content: space-between;
+}
+p {
+  font-size: 16px;
+}
+a {
+  font-size: 16px;
+}
+.content-right {
+  width: 70%;
+  margin-left: 50px;
+}
+
+.product-content {
+  display: flex;
+  flex-wrap:wrap;
+  align-items: stretch;
+  /*justify-content: space-between;*/
+  width: 100%;
+  
+}
+
+.product-item {
+  width: 30%;
+  cursor: pointer;
+  position: relative;
+  margin:0 10px 50px;
+}
+
+.product-title {
+  color: #c0c0c0;
+  font-size: 14px;
+}
+
+.product-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1a73e7;
+}
+
+.product-img {
+height:185px;
+object-fit:cover;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #fff;
+  background: #1a73e7;
+  font-size: 14px;
+}
+
+.btn:hover {
+  color: #1a73e7;
+  background: #fff;
+  border: 1px solid #1a73e7;
+  font-weight: bold;
+}
+
+/*.product-item::after {
+  content: 'XEM NHANH';
+  position: absolute;
+  color: transparent;
+  font-size: 16px;
+  line-height: 35px;
+  text-align: center;
+  width: 0;
+  height: 35px;
+  top: 48%;
+  left: 0;
+ 
+  transform-origin: bottom bottom;
+  background: #1a73e7;
+  transition: all 0.2s linear;
+}
+
+.product-item:hover::after {
+  top: 48%;
+
+  width: 100%;
+  color: #fff;
+}*/
+
+footer ul {
+  list-style: disc;
+}
+
+footer ul li {
+  font-size: 16px;
+}
+
+footer h4 {
+  font-size: 16px;
+  color: #1a73e7;
+  margin-bottom: 20px;
+}
+
+footer {
+  margin-top: 100px;
+  padding: 50px 0;
+  border-top: 3px solid #1a73e7;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item {
+  width: 25%;
+  margin: 0 30px;
+}
+
+.detail{
+  margin-top: 100px;
+}
+
+.container-detail{
+  display: flex;
+align-items: center;
+}
+
+.detail-left{
+  width: 50%;
+}
+
+.detail-right{
+  width: 50%;
+}
+
+.detail-name{ 
+  font-size: 35px;
+}
+.detail-price{ 
+  margin: 30px 0;
+  position: relative;
+  font-size: 18px;
+  color: #1a73e7 ;
+  font-weight: bold;
+}
+
+.detail-price span{
+  color: red;  font-weight: bold;
+  font-size: 25px;
+}
+
+.detail-price span span{
+  font-size: 14px;
+}
+
+.detail-price::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  top: -15px;
+  left: 0;
+  background: #e5e5e5;
+}
+.detail-element{ 
+  margin-bottom: 15px; font-style: italic;
+}
+.detail-congdung{
+  margin-bottom: 15px;
+ font-style: italic;
+ }
+.detail-baoquan{
+  margin-bottom: 15px; font-style: italic;
+ }
+.detail-soluongton{ }
+
+.span-green{
+  color: #1a73e7 ;
+  font-weight: bold;
+}
+
+.span-round{
+  padding: 5px;
+  background: rgba(26,155,231,0.6);
+  color:#fff;
+  border-radius: 50%;
+}

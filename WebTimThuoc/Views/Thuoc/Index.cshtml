@@ -1,0 +1,33 @@
+﻿@using WebTimThuoc.Models
+@model List<THUOC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutThuoc.cshtml";
+}
+
+<h2 style="color:#333; font-size:25px; margin-bottom:20px; margin-left:20px;">@ViewBag.tb</h2>
+
+
+
+ <div class="product-content">
+      @foreach (THUOC s in Model)
+   { 
+            <div class="product-item">
+                <a href="@Url.Action("ChiTiet", "Thuoc", new { maSP = @s.TENTHUOC })">
+
+                    <img src="~/Content/images/@s.HINHTHUOC" class="product-img" />
+                </a>
+              
+              <p class="product-title">  @s.LOAITHUOC.TENLOAITHUOC</p>
+              <p class="product-name">
+                @s.TENTHUOC
+              </p>
+             
+              <p class="product-price">@s.DONGIATHUOC VND / @s.DVT</p>
+              <a href="@Url.Action("ChiTiet", "Thuoc", new { maSP = @s.TENTHUOC })" class="btn">Xem thông tin</a>
+            </div>
+      }
+     </div>
+  
+   

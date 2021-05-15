@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="shortcut icon" type="image/png" href="https://www.flaticon.com/svg/vstatic/svg/4320/4320337.svg?token=exp=1620883738~hmac=f0b8f3af412b238f1af74c65e87b26f1"/>
+     <link rel="stylesheet" href="~/Content/StyleSheet2.css" />
+      <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+     <header>
+      <div class="container container-header">
+          <a href="@Url.Action("Index","Thuoc")">   <img src="~/Content/images/logo-pmc.png" class="logo" /></a>
+     
+            <form action="/Thuoc/Search" method="get">
+        @Html.TextBox("keyword",null, new { @style = "border-radius:0px; width:380px; border:none;  border-bottom:2px solid #1a73e7;  padding:10px  20px 10px 10px;",@placeholder = "Bạn tìm kiếm sản phẩm gì..." })
+                   
+                <input class="ml-2" type="submit" value="Tìm kiếm" style="border-radius:10px; border:none; cursor:pointer; outline:none; padding:10px 10px; background-color:#1a73e7; color:white;"/>
+                
+                    </form>
+
+          @*  <input type="text" id="timKiem" value="@Model.giatri" name="txtKeyword" placeholder="Tìm kiếm sản phẩm..." class="mt-3" style="border-radius:0px; width:380px;  border-bottom:2px solid #1a73e7;  padding:10px  20px 10px 10px;" />
+                          @Html.ActionLink("Tim kiem", "a", "Thuoc", new { giatri =  @Model.giatri}, new { @class = "nav-link" }) *@
+     
+          
+             @*<div class="input-timKiem">
+          <input
+            type="text"
+            id="timKiem"
+            placeholder="Bạn tìm kiếm sản phẩm gì..."
+          />
+          <i class="fas search-icon fa-search"></i>
+        </div>*@
+      </div>
+      <ul class="menu-bar">
+        <div class="container">
+          <li class="menu-item">
+            TƯ VẤN THUỐC <i class="fas fa-caret-down"></i>
+          </li>
+          <li class="menu-item">SẢN PHẨM <i class="fas fa-caret-down"></i></li>
+          <li class="menu-item">NHÃN HÀNG PHARMACITY</li>
+          <li class="menu-item">SỐNG KHỎE <i class="fas fa-caret-down"></i></li>
+        </div>
+      </ul>
+    </header>
+
+    <section class="content">
+      <div class="container container-product">
+        <div class="content-left">
+          <h3 class="title">CATEGORY</h3>
+
+                  @Html.Action("DSLoaiThuoc2","Thuoc")
+         @* <ul class="category-list">
+            <li class="category-item">
+              Thực phẩm chức năng <i class="fas fa-caret-down"></i>
+            </li>
+            <li class="category-item">
+              Thuốc không kê đơn <i class="fas fa-caret-down"></i>
+            </li>
+          </ul>*@
+        </div>
+
+        <div class="content-right">
+             <div>
+        @RenderBody()
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container container-footer">
+        <div class="footer-item">
+          <h4>VỀ PHARMACITY</h4>
+          <p>
+            Tại Pharmacity, mỗi dược sỹ luôn tận tâm phục vụ và được đào tạo để
+            hoàn thành xuất sắc những sứ mệnh được giao....
+          </p>
+        </div>
+        <div class="footer-item">
+          <h4>LIÊN KẾT HỮU ÍCH</h4>
+          <ul>
+            <li>Các câu hỏi thường gặp</li>
+            <li>Tìm cửa hàng gần bạn</li>
+            <li>Chính sách giao hàng</li>
+            <li>Chính sách đổi trả</li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h4>HOTLINE MIỄN PHÍ (7H-22H)</h4>
+          <ul>
+            <li>Gọi đặt hàng: 18006821</li>
+            <li>Gọi tư vấn - hỗ trợ: 18002001</li>
+            <li>
+              Hỗ trợ doanh nghiệp: hieu.phamtrung@pharmacity.vn
+              bich.phungthingoc@pharmacity.vn
+            </li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h4>ĐĂNG KÝ NHẬN TIN MỚI</h4>
+          <p>
+            Hãy đăng ký email để nhận được khuyến mãi hoặc ưu đãi mới nhất từ
+            Pharmacity
+          </p>
+        </div>
+      </div>
+    </footer>
+   
+</body>
+</html>

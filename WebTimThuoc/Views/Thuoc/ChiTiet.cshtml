@@ -1,0 +1,26 @@
+﻿@using WebTimThuoc.Models;
+@model THUOC
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/LayoutThuoc.cshtml";
+}
+
+
+
+ <div class="container container-detail">
+        <div class="detail-left">
+          <div class="img-container">
+            @*<img src="https://image.pharmacity.vn/live/uploads/2020/09/P17947_2_l-300x300.jpg" alt="">*@
+              <img src="~/Content/images/@Model.HINHTHUOC" />
+          </div>
+         
+        </div>
+        <div class="detail-right" style="margin-left:20px">
+           <p class="detail-name"><i class="fas fa-pills" style="font-size:22px; color:#000;"></i> @Model.TENTHUOC</p>
+          <p class="detail-price">Giá: <span>@Model.DONGIATHUOC VND <span>/@Model.DVT</span></span> </p>
+          <p class="detail-element"><span class="span-green">Thành phần:</span> @Model.THANHPHAN</p>
+          <p class="detail-congdung"><span class="span-green">Công dụng:</span> @Model.CONGDUNG. @Model.GHICHUTHUOC</p>
+          <p class="detail-baoquan"><span class="span-green">Cách bảo quản:</span> @Model.BAOQUAN</p>
+          <p class="detail-soluongton"><span class="span-green">Số lượng tồn:</span> <span class="span-round">@Model.SOLUONGTON</span></p>
+        </div>
+      </div>
